@@ -23,6 +23,7 @@ elif opcion == 3:
     print("Saliendo del juego. ¡Hasta luego!")
     exit()
 
+# Raúl 21/12/2025 (solo las opciones despues de iniciar partida como vs IA o vs Jugador y modos de dificultad)
 while True:
     try:
         menu = input("Elige qué modo quieres jugar:\n1. Juego contra la computadora\n2. Juego para dos jugadores\nElección: ")
@@ -73,10 +74,38 @@ def inicializar_tablero(filas, columnas):
         tablero.append(fila)
     return tablero
 
+#aqui voy a meter funciones para más adelante implementarlas (Raúl 23/12/2025)
+
+def disparar(atacante, defensor, fila, col): #atacante --> el jugador que dispara || defensor --> el jugador que recibe el disparo || fila, col --> la coordenada (fila columna) a la que se dispara
+    if defensor["propio"][fila][col] == " B ":
+        defensor["propio"][fila][col] = " X " #Marca el barco como tocado
+        atacante["disparos"][fila][col] = " X " #Marca el disparo como acierto en el tablero del atacante
+        print("Tocado")
+    elif defensor["propio"][fila][col] == " ~ ":
+        defensor["propio"][fila][col] = " O " #Marca el disparo fallido en ambos tableros
+        atacante["disparos"][fila][col] = " O "
+        print("Agua")
+    else:
+        print("Coordenada ya disparada") #Para no repetir
+
+def pedir_coordenada(): #Funcion para pedir y validar coordenadas al usuario
+    while True:
+        coord = input("Introduce coordenada (letra y número): ").upper() #Pedir coordenadas y poner en mayúscula por control de errores
+        if len(coord) >= 2: #Condicion para control de errores si solo seescribe 1 letra
+            fila = ord(coord[0]) - ord("A") #Convertir letra a número siendo A=0 || B=1 || C=2 etc...
+            col = int(coord[1:]) - 1 #Convierte número en índice siendo 1-->0 || 5-->4 || 10-->9
+            if 0 <= fila < 10 and 0 <= col < 10:
+                return fila, col #Devuelve (fila y columna)
+        print("Coordenada inválida")
+
+def ha_perdido(estado): #Comprueba los barcos hundidos fila por fila (B es la marca de la casilla donde hay barco sin tocar/hundir)
+    for fila in estado["propio"]:
+        if " B " in fila: #Comprueba la B en cada fila y duevuelve False si la hay
+            return False
+    return True #Devuelve True si no existe ninguna B en ninguna fila
 
 
 # apartado realizado por javier 22/12/2025
-
 
 def imprimir_tablero(tablero, ocultar_barcos=False):
     # Imprime arriba los números 1..10 
