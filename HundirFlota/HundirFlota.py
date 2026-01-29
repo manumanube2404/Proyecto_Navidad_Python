@@ -2,6 +2,7 @@ import random
 import os
 import time
 
+# Inicio Raúl
 while True:
     try:
         menu = input(
@@ -64,6 +65,7 @@ elif opcion == 2:
             break
         else:
             print("Opción inválida")
+# Fin Raúl
 
 # Colocación manual de barcos
 # Parte de Fran
@@ -123,9 +125,7 @@ def inicializar_tablero(filas, columnas):
         tablero.append(fila)
     return tablero
 
-# aqui voy a meter funciones para más adelante implementarlas (Raúl 23/12/2025)
-
-
+# Inicio Raúl 23/12/2025:
 # atacante --> el jugador que dispara || defensor --> el jugador que recibe el disparo || fila, col --> la coordenada (fila columna) a la que se dispara
 def disparar(atacante, defensor, fila, col):
     if defensor["propio"][fila][col] == " B ":
@@ -177,7 +177,7 @@ def ha_perdido(estado):  # Comprueba los barcos hundidos fila por fila (B es la 
         if " B " in fila:  # Comprueba la B en cada fila y duevuelve False si la hay
             return False
     return True  # Devuelve True si no existe ninguna B en ninguna fila
-
+# Fin Raúl
 
 # apartado realizado por javier 22/12/2025
 
