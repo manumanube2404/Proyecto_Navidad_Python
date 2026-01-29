@@ -68,7 +68,8 @@ elif opcion == 2:
 # Fin Raúl
 
 # Colocación manual de barcos
-# Parte de Fran
+# Inicio Fran 30/12/2025
+# Aquí vamos a añadir la base del juego contra la IA y algunas funciones extra para que el juego sea más completo
 def colocar_barco_manual(estado, tamaño):
 
     # Muestra el tablero
@@ -105,10 +106,10 @@ def colocar_barco_manual(estado, tamaño):
             break
         else:
             print("No puedes colocar este barco ahí")
-# Parte de Fran
+
 def limpiar_pantalla():
-    os.system("cls" if os.name == "nt" else "clear") # Parte de Fran (nt = windows usa cls / proxis = macOS/linux usa clear)
-# Parte de Fran
+    os.system("cls" if os.name == "nt" else "clear") # Dependiendo del sistema operativo limpia la terminal
+
 def colocar_flota_manual(estado):
     flota = [5, 4, 3, 3, 2]
     for tam in flota:
@@ -124,6 +125,8 @@ def inicializar_tablero(filas, columnas):
         fila = [" ~ "] * columnas  # Representa agua
         tablero.append(fila)
     return tablero
+
+# Fin Fran
 
 # Inicio Raúl 23/12/2025:
 # atacante --> el jugador que dispara || defensor --> el jugador que recibe el disparo || fila, col --> la coordenada (fila columna) a la que se dispara
@@ -387,15 +390,8 @@ if opcion == 1:
 if opcion == 2:
     iniciar_1v1(tablero_aleatorio)
 
-    # Fran 30/12/2025 (Aquí vamos a añadir el modo contra le IA, que seria la opcion juego contra la computadora y algunas funciones extra para que el juego sea más completo)
 
-# Funciones añadidas
-
-# Limpia la pantalla de la consola para que otros jugadores no puedan ver tus movimientos
-
-
-
-
+# Fran 31/12/2025 (Aquí implementamos el modo contra la IA con distintos niveles de dificultad)
 
 def barco_hundido(estado, fila, col):
 
@@ -408,12 +404,6 @@ def barco_hundido(estado, fila, col):
                     return False
             return True
     return False
-
-
-
-
-
-# Fran 31/12/2025 (Aquí implementamos el modo contra la IA con distintos niveles de dificultad)
 
 # Funcionamiento de la IA para el 1 vs computadora
 
@@ -511,3 +501,4 @@ try:
         iniciar_vs_ia(nivel)
 except:
     pass
+# Fin Fran
