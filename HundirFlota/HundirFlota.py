@@ -20,7 +20,7 @@ while True:
 
 # aqui empieza el switch
 if opcion == 1:
-    print("Iniciando el juego Hundir la flota... Aún no está hecho.")
+    print("Iniciando el juego Hundir la flota...")
 elif opcion == 2:
     print("Reglas del juego Hundir la flota:\n1. Cada jugador tiene una flota de barcos que debe colocar estratégicamente en el tablero.\n2. Los barcos pueden ser de diferentes tamaños y formas.\n3. Los jugadores se turnan para disparar a las coordenadas del tablero del oponente.\n4. Si un disparo alcanza un barco, se marca como 'tocado'. Si no, se marca como 'agua'.\n5. El objetivo es hundir todos los barcos del oponente antes de que hundan los tuyos.\n6. ¡Buena suerte y diviértete!:")
 elif opcion == 3:
